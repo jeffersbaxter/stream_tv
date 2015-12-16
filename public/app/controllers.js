@@ -30,7 +30,7 @@ angular.module('VideoCtrls', ['VideoServices'])
           details: info
         };
         $scope.videos.push($scope.vidObj);
-      console.log($scope.vidObj);
+
       }
     })
     .error(function(data){
@@ -50,10 +50,9 @@ angular.module('VideoCtrls', ['VideoServices'])
 }])
 .controller('ShowCtrl', ['$scope','$sce', '$routeParams', function($scope,$sce,$routeParams){
   $scope.video = {};
-  console.log($routeParams);
   $scope.video.id = $routeParams.id;
   $scope.video.link = "http://www.youtube.com/embed/"+$scope.video.id;
-  console.log($scope.video.link);
+
 }])
 
 .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
