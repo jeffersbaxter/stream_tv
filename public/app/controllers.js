@@ -5,7 +5,7 @@ angular.module('VideoCtrls', ['VideoServices'])
   $scope.vidObj = {}
   $scope.vidInfo = [];
   $scope.search = '';
-  $scope.videoID = 'aMS0O3kknvk';
+
 
   var pendingTask;
   $scope.source = '';
@@ -36,6 +36,15 @@ angular.module('VideoCtrls', ['VideoServices'])
     .error(function(data){
       console.log(data.error);
     });
+  }
+
+  $scope.reset = function(){
+
+    $scope.search = "";
+
+    $scope.$watch('videos', function(newValue, oldValue){
+      $scope.videos = [];
+    })
   }
 
 }])
