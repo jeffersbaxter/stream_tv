@@ -36,19 +36,15 @@ angular.module('VideoCtrls', ['VideoServices'])
     .error(function(data){
       console.log(data.error);
     });
-
-
   }
 
 }])
-.controller('ShowCtrl', ['$scope', '$routeParams', function($scope,$routeParams){
+.controller('ShowCtrl', ['$scope','$sce', '$routeParams', function($scope,$sce,$routeParams){
   $scope.video = {};
-
-  // Video.get({id: $routeParams.id}, function success(data){
-  //   $scope.video = data;
-  // }, function error(data){
-  //   console.log(data);
-  // })
+  console.log($routeParams);
+  $scope.video.id = $routeParams.id;
+  $scope.video.link = "http://www.youtube.com/embed/"+$scope.video.id;
+  console.log($scope.video.link);
 }])
 
 .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {

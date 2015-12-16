@@ -1,33 +1,36 @@
-<h1 class="heading">Videos</h1>
+<div ng-hide="isLoggedIn()" class="text-center">
+	<h1>Please Sign/Log in</h1>
+	<i class="fa fa-video-camera" id="camera"></i>
+</div>
 
-<form role="form" ng-submit="fetchFromYouTube()">
+<div ng-show="isLoggedIn()">
+	<h1 class="heading">Videos</h1>
 
-	<div class="form-group heading">
-		<label for="" class="heading">Search</label>
-		<input type="text" class="form-control" id="" placeholder="ex: Grape lady falls" ng-change="change()" ng-model="search" name="q">
-	</div>
+	<form role="form" ng-submit="fetchFromYouTube()">
 
-	
+		<div class="form-group heading">
+			<label for="" class="heading">Search</label>
+			<input type="text" class="form-control" id="" placeholder="ex: Grape lady falls" ng-change="change()" ng-model="search" name="q">
+		</div>
 
-	<button type="submit" class="btn btn-primary" id="buttonSearch">Submit</button>
-</form>
-<div class="row">
-	<div class="col-md-6 col-md-offset-3">
 		
-		<div class="well row" ng-repeat="video in videos track by video.id" id="customWell">
-			<div class="col-md-4">
-				<a ng-href="/show/{{video.id}}">{{video.details.title}}</a>
-				<p>{{video.details.description}}</p>
-			</div>
-			<div class="col-md-8">
-				<img ng-src="{{video.details.thumbnails.medium.url}}" />	
+
+		<button type="submit" class="btn btn-primary" id="buttonSearch">Submit</button>
+	</form>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			
+			<div class="well row" ng-repeat="video in videos track by video.id" id="customWell">
+				<div class="col-md-4">
+					<a ng-href="/show/{{video.id}}">{{video.details.title}}</a>
+					<p>{{video.details.description}}</p>
+				</div>
+				<div class="col-md-8">
+					<img ng-src="{{video.details.thumbnails.medium.url}}" />	
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 
-<!-- 
-<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-  frameborder="0"/> -->

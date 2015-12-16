@@ -1,5 +1,9 @@
-<h1 class="heading">Show</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">	
+		<h1 class="heading">Show</h1>
 
-<p id="href">https://www.youtube.com/embed/{{video.id}}</p>
+		<iframe allowfullscreen="true" frameborder="0" width="600" height="390" ng-src="{{video.link | trustAsResourceUrl}}"></iframe>
+	</div>
+</div>
 
 <!-- <iframe width="600" height="390" ng-src="https://www.youtube.com/embed/THfiHQZVSw0"></iframe> -->

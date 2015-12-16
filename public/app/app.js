@@ -1,4 +1,4 @@
-var app = angular.module('VideoApp', ['ngRoute', 'VideoCtrls', "VideoServices"]);
+var app = angular.module('VideoApp', ['ngRoute', 'VideoCtrls', "VideoServices", "VideoFilters"]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
