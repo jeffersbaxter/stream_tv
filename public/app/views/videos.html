@@ -11,8 +11,19 @@
 
 	<button type="submit" class="btn btn-primary" id="buttonSearch">Submit</button>
 </form>
-<div class="well" ng-repeat="video in videos track by $index">
-	<a href="">{{video}}</a>	
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		
+		<div class="well row" ng-repeat="video in videos track by video.id" id="customWell">
+			<div class="col-md-4">
+				<a ng-href="/show/{{video.id}}">{{video.details.title}}</a>
+				<p>{{video.details.description}}</p>
+			</div>
+			<div class="col-md-8">
+				<img ng-src="{{video.details.thumbnails.medium.url}}" />	
+			</div>
+		</div>
+	</div>
 </div>
 
 

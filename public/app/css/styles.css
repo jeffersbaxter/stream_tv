@@ -19,3 +19,13 @@ body {
 	background-color: #4B244A;
 	border: 2px solid #491C48;
 }
+
+#customWell {
+	border: 2px solid #491C48;
+	background-color: rgba(75,36,74,0.7);
+	color: white;
+}
+
+#href {
+	color: white;
+}

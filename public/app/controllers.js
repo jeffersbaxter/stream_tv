@@ -1,19 +1,15 @@
 angular.module('VideoCtrls', ['VideoServices'])
 .controller('HomeCtrl', ['$scope','$http', function($scope, $http) {
-  // var API_KEY = process.env.KEY;
+
   $scope.videos = [];
+  $scope.vidObj = {}
+  $scope.vidInfo = [];
   $scope.search = '';
   $scope.videoID = 'aMS0O3kknvk';
 
   var pendingTask;
   $scope.source = '';
-  // $scope.watch(function() {
-  //   return $scope.source;
-  // }, function() {
-  //   //create iframe
-  //   //assign ng-src to $scope.source
-  //   //append iframe where you want it
-  // });
+
   $scope.fetchFromYouTube = function(){
     $http.get("/results", {
       params: {
@@ -22,14 +18,20 @@ angular.module('VideoCtrls', ['VideoServices'])
     })
     .success(function(data){
       var videoID = data.items[0].id.videoId;
-      // $scope.source = "https://www.youtube.com/embed/"+videoID;
-      // console.log($scope.source);
+
+      // iterate through Youtube data to get video info
       for (var i = 0; i < data.items.length; i++){
         var embedLink = "https://www.youtube.com/embed/"+data.items[i].id.videoId;
-        $scope.videos.push(embedLink);
+        var info = data.items[i].snippet;
+        $scope.vidInfo.push(info);
+        $scope.vidObj = {
+          id: data.items[i].id.videoId,
+          link: embedLink,
+          details: info
+        };
+        $scope.videos.push($scope.vidObj);
+      console.log($scope.vidObj);
       }
-
-      console.log($scope.videos);
     })
     .error(function(data){
       console.log(data.error);
@@ -39,7 +41,15 @@ angular.module('VideoCtrls', ['VideoServices'])
   }
 
 }])
+.controller('ShowCtrl', ['$scope', '$routeParams', function($scope,$routeParams){
+  $scope.video = {};
 
+  // Video.get({id: $routeParams.id}, function success(data){
+  //   $scope.video = data;
+  // }, function error(data){
+  //   console.log(data);
+  // })
+}])
 
 .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
   $scope.logout = function() {
