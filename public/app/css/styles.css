@@ -1,0 +1,21 @@
+body {
+	background-image: url('./escheresque_ste/escheresque_ste.png');
+}
+
+* {
+	font-family: 'Roboto Slab', serif;
+}
+
+.heading {
+	color: white;
+}
+
+#navCustom {
+	border: 2px solid #491C48;
+	background-color: #4B244A;
+}
+
+#buttonSearch {
+	background-color: #4B244A;
+	border: 2px solid #491C48;
+}

@@ -4,19 +4,19 @@ var path = require('path');
 var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
 var env = require('dotenv').load();
+var request = require('request');
 var app = express();
 
 var secret = "password";
 
 var mongoose = require('mongoose');
 var User = require('./models/user');
-mongoose.connect('mongodb://localhost/sports');
+mongoose.connect('mongodb://localhost/videos');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/api/sports', expressJWT({secret: secret}));
 app.use('/api/users', expressJWT({secret: secret})
 .unless({path: ['/api/users'], method: 'post'}));
 
@@ -26,8 +26,24 @@ app.use(function (err, req, res, next) {
   }
 });
 
-// app.use('/api/recipes', require('./controllers/recipes'));
 app.use('/api/users', require('./controllers/users'));
+
+app.get("/results", function(req,res){
+  var query = {
+    term: req.query.q
+  };
+  request("https://www.googleapis.com/youtube/v3/search/?part=id,snippet&q="+query.term+"&key="+process.env.YOUTUBE_KEY, function(error,response,body){
+    if(error) {
+      console.log(error);
+    }
+    if (!error && response.statusCode == 200) {
+      var data = JSON.parse(response.body);
+      // console.log(data);
+      res.send(data);
+    }
+  })
+});
+
 
 app.post('/api/auth', function(req, res) {
   User.findOne({email: req.body.email}, function(err, user) {

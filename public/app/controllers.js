@@ -1,44 +1,40 @@
 angular.module('VideoCtrls', ['VideoServices'])
 .controller('HomeCtrl', ['$scope','$http', function($scope, $http) {
-  var API_KEY = process.env.KEY;
+  // var API_KEY = process.env.KEY;
   $scope.videos = [];
   $scope.search = '';
-
-  if($scope.search === undefined){
-    $scope.search = "Sherlock Holmes";
-    fetch();
-  }
+  $scope.videoID = 'aMS0O3kknvk';
 
   var pendingTask;
-  $scope.change = function(){
-    if(pendingTask){
-      clearTimeout(pendingTask);
-    }
-      pendingTask = setTimeout(fetch, 800);
-  };
-
-  function fetch(){
-
-    $http.get("https://www.googleapis.com/youtube/v3/search", {
+  $scope.source = '';
+  // $scope.watch(function() {
+  //   return $scope.source;
+  // }, function() {
+  //   //create iframe
+  //   //assign ng-src to $scope.source
+  //   //append iframe where you want it
+  // });
+  $scope.fetchFromYouTube = function(){
+    $http.get("/results", {
       params: {
-        key: API_KEY,
-        type: "video",
-        maxResults: '10',
-        part: 'id,snippet',
-        fields: 'items/id,items/snippet/title,items/snippet/description,items/snippet/thumbnails/default,items/snippet/channelTitle',
         q: $scope.search
       }
     })
     .success(function(data){
-      // $scope.results = data;
-      console.log(data);
+      var videoID = data.items[0].id.videoId;
+      // $scope.source = "https://www.youtube.com/embed/"+videoID;
+      // console.log($scope.source);
+      for (var i = 0; i < data.items.length; i++){
+        var embedLink = "https://www.youtube.com/embed/"+data.items[i].id.videoId;
+        $scope.videos.push(embedLink);
+      }
 
+      console.log($scope.videos);
     })
     .error(function(data){
-      console.log(data);
+      console.log(data.error);
     });
 
-    console.log($scope.search);
 
   }
 

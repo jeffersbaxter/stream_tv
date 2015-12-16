@@ -1,0 +1,1 @@
+console.log(process.env.YOUTUBE_KEY)

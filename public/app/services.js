@@ -5,13 +5,13 @@ angular.module('VideoServices', ['ngResource'])
 .factory('Auth', ['$window', "$rootScope", function($window) {
   return {
     saveToken: function(token) {
-      $window.localStorage['secretrecipes-token'] = token;
+      $window.localStorage['secretvideos-token'] = token;
     },
     getToken: function() {
-      return $window.localStorage['secretrecipes-token'];
+      return $window.localStorage['secretvideos-token'];
     },
     removeToken: function() {
-      $window.localStorage.removeItem('secretrecipes-token');
+      $window.localStorage.removeItem('secretvideos-token');
     },
     isLoggedIn: function() {
       var token = this.getToken();

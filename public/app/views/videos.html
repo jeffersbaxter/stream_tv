@@ -1,14 +1,22 @@
-<h1>Videos</h1>
+<h1 class="heading">Videos</h1>
 
-<form role="form">
-	<legend>Form title</legend>
+<form role="form" ng-submit="fetchFromYouTube()">
 
-	<div class="form-group">
-		<label for="">Search</label>
-		<input type="text" class="form-control" id="" placeholder="Input field" ng-change="change()" ng-model="search">
+	<div class="form-group heading">
+		<label for="" class="heading">Search</label>
+		<input type="text" class="form-control" id="" placeholder="ex: Grape lady falls" ng-change="change()" ng-model="search" name="q">
 	</div>
 
 	
 
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-primary" id="buttonSearch">Submit</button>
 </form>
+<div class="well" ng-repeat="video in videos track by $index">
+	<a href="">{{video}}</a>	
+</div>
+
+
+<!-- 
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  frameborder="0"/> -->
