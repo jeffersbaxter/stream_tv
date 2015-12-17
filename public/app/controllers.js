@@ -61,7 +61,6 @@ angular.module('VideoCtrls', ['VideoServices'])
 .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
   $scope.logout = function() {
     Auth.removeToken();
-    console.log('My token:', Auth.getToken());
   }
 }])
 .controller('SignupCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {

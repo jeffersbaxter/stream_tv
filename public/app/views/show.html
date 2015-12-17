@@ -1,10 +1,11 @@
-<div class="row">
-	<div class="col-md-6 col-md-offset-3">	
-		<h1 class="heading">{{video.details}}</h1>
+<div ng-show="isLoggedIn()" class="row">
+	<div class="col-xs-12 col-md-6 col-md-offset-3">	
+		<h2 class="heading well" id="customWell">{{video.details}}</h2>
 
-
-		<iframe allowfullscreen="true" frameborder="0" width="600" height="390" ng-src="{{video.link | trustAsResourceUrl}}"></iframe>
+		<div class="embed-responsive embed-responsive-16by9">	
+			<iframe class="embed-responsive-item" allowfullscreen="true" frameborder="0" width="600" height="390" ng-src="{{video.link | trustAsResourceUrl}}"></iframe>
+		</div>
+		<a href="javascript:history.back()" class="btn button" id="backBtn">&larr;</a>
 	</div>
 </div>
 
-<!-- <iframe width="600" height="390" ng-src="https://www.youtube.com/embed/THfiHQZVSw0"></iframe> -->
