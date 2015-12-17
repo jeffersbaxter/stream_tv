@@ -1,7 +1,5 @@
 angular.module('VideoServices', ['ngResource'])
-// .factory('Recipe', ['$resource', 'Auth', function($resource, Auth) {
-//   return $resource('http://localhost:3000/api/sports/:id');
-// }])
+
 .factory('Auth', ['$window', "$rootScope", function($window) {
   return {
     saveToken: function(token) {
@@ -39,5 +37,19 @@ angular.module('VideoServices', ['ngResource'])
       }
       return config;
     }
+  }
+}])
+.factory('shareData', [function(){
+  var savedData = {}
+  function set(data){
+    savedData = data;
+  }
+  function get(){
+    return savedData;
+  }
+
+  return {
+    set: set,
+    get: get
   }
 }]);

@@ -1,5 +1,5 @@
 angular.module('VideoCtrls', ['VideoServices'])
-.controller('HomeCtrl', ['$scope','$http', function($scope, $http) {
+.controller('HomeCtrl', ['$scope','$http', 'shareData', function($scope, $http, shareData) {
 
   $scope.videos = [];
   $scope.vidObj = {}
@@ -30,7 +30,7 @@ angular.module('VideoCtrls', ['VideoServices'])
           details: info
         };
         $scope.videos.push($scope.vidObj);
-
+        shareData.set($scope.videos);
       }
     })
     .error(function(data){
@@ -44,14 +44,17 @@ angular.module('VideoCtrls', ['VideoServices'])
 
     $scope.$watch('videos', function(newValue, oldValue){
       $scope.videos = [];
-    })
-  }
+    });
+  };
 
 }])
-.controller('ShowCtrl', ['$scope','$sce', '$routeParams', function($scope,$sce,$routeParams){
+.controller('ShowCtrl', ['$scope','$sce', '$routeParams', 'shareData', function($scope,$sce,$routeParams,shareData){
   $scope.video = {};
   $scope.video.id = $routeParams.id;
+  $scope.video.details = $routeParams.details;
   $scope.video.link = "http://www.youtube.com/embed/"+$scope.video.id;
+  $scope.shared = shareData.get();
+  console.log($scope.video.details);
 
 }])
 

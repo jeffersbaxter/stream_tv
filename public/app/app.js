@@ -7,7 +7,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     templateUrl: 'app/views/videos.html',
     controller: 'HomeCtrl'
   })
-  .when('/show/:id', {
+  .when('/show/:id/:details', {
     templateUrl: 'app/views/show.html',
     controller: 'ShowCtrl'
   })
