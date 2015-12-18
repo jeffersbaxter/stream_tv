@@ -5,7 +5,7 @@ body {
 * {
 	font-family: 'Roboto Slab', serif;
 	color: white;
-	border-radius: 0 !important;
+	/*border-radius: 0 !important;*/
 }
 
 .heading {
@@ -99,7 +99,6 @@ body {
 }
 
 .relatedHeader {
-	/*background-color: rgba(0,0,0,0.3);*/
 	z-index: 100;
 	width: 100%;
 	padding: 1px;
