@@ -26,7 +26,7 @@ body {
 	border: 2px solid #491C48;
 }
 
-#customWell {
+.well {
 	border: 2px solid #491C48;
 	background-color: rgba(75,36,74,0.5);
 	color: white;
@@ -73,8 +73,11 @@ body {
 }
 
 #backBtn {
-	margin-top: 20px;
 	color: white;
+	background-color: #4B244A;
+	border: 2px solid white;
+	z-index: 500;
+	position: fixed;
 }
 
 #backBtn404 {
@@ -84,8 +87,27 @@ body {
 	border: 2px solid white;
 }
 
+#scrollbox {
+	border: 2px solid #491C48;
+	background-color: rgba(75,36,74,0.5);
+	box-shadow: rgba(255, 255, 255, 0.6) inset;
+	height:420px;
+	width:350px;
+	overflow:auto;
+	padding: 20px;
+	margin-top: 20px;
+}
 
+#relatedVids {
+	z-index: -500;
+}
 
+.relatedHeader {
+	background-color: rgba(0,0,0,0.3);
+	z-index: 100;
+	width: 100%;
+	padding: 1px;
+}
 
 
 
