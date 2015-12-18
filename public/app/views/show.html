@@ -1,3 +1,15 @@
+
+<div ng-hide="isLoggedIn()" class="text-center" id="bgPic">
+	<div class="row" id="content">	
+		<div class="col-md-6">	
+			<!-- <i class="fa fa-video-camera" id="camera"></i> -->
+		</div>
+		<div class="col-md-6">	
+			<div class="well" id="aboutWell"><h3 id="aboutText">Welcome to StreamTV, an online video streaming service without advertising. Sign up to StreamTV in order to view any content.</h3></div>
+		</div>
+	</div>
+</div>
+
 <div ng-show="isLoggedIn()" class="row">
 	<div class="col-xs-12 col-md-5 col-md-offset-2">	
 		<h2 class="heading well" id="customWell">{{video.details}}</h2>
