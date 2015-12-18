@@ -54,8 +54,6 @@ angular.module('VideoCtrls', ['VideoServices'])
   $scope.video.details = $routeParams.details;
   $scope.video.link = "http://www.youtube.com/embed/"+$scope.video.id;
   $scope.shared = shareData.get();
-  console.log($scope.shared);
-
 }])
 
 .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {

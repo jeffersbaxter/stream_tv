@@ -2,7 +2,6 @@
 <div ng-hide="isLoggedIn()" class="text-center" id="bgPic">
 	<div class="row" id="content">	
 		<div class="col-md-6">	
-			<!-- <i class="fa fa-video-camera" id="camera"></i> -->
 		</div>
 		<div class="col-md-6">	
 			<div class="well" id="aboutWell"><h3 id="aboutText">Welcome to StreamTV, an online video streaming service without advertising. Sign up to StreamTV in order to view any content.</h3></div>
@@ -16,18 +15,20 @@
 		<h2 class="heading well" id="customWell">{{video.details}}</h2>
 
 		<div class="embed-responsive embed-responsive-16by9">	
-			<iframe class="embed-responsive-item" allowfullscreen="true" frameborder="0" width="600" height="390" ng-src="{{video.link | trustAsResourceUrl}}"></iframe>
+			<iframe class="embed-responsive-item" allowfullscreen="true" frameborder="0" width="654" height="425" ng-src="{{video.link | trustAsResourceUrl}}"></iframe>
 		</div>
 	</div>
-	<div id="scrollbox">	
-		<a href="javascript:history.back()" class="btn button" id="backBtn">&larr;</a>
-		<div class="text-center relatedHeader"><h4>Related Videos</h4></div>
-		<div class="row text-center" ng-repeat="item in shared" id="relatedVids">
-			<div>
-				<a ng-href="/show/{{item.id}}/{{item.details.title}}">{{item.details.title | cut:true:50:' ...'}}</a>
-				<img ng-src="{{item.details.thumbnails.medium.url}}" />
-			</div><br /><br />
-		</div>
+	<div id="scrollbox">
+		<div id="tint">			
+			<a href="javascript:history.back()" class="btn button" id="backBtn">&larr;</a>
+			<div class="text-center relatedHeader"><h4>Related Videos</h4></div>
+			<div class="row text-center" ng-repeat="item in shared" id="relatedVids">
+				<div>
+					<a ng-href="/show/{{item.id}}/{{item.details.title}}" id="relatedLink">{{item.details.title | cut:true:50:' ...'}}</a>
+					<img ng-src="{{item.details.thumbnails.medium.url}}" />
+				</div><br /><br />
+			</div>
+		</div>	
 	</div>
 </div>
 
