@@ -22,11 +22,16 @@
     <![endif]-->
   </head>
   <body>
+    <div ng-include="'app/views/nav.html'"></div>
     <div class="container">
-      <div ng-include="'app/views/nav.html'"></div>
-      <ng-view></ng-view>
+<!--       <div id="wrap">
+        <div id="main" class="clear-top"> -->
+          <ng-view></ng-view>
+<!--         </div>
+      </div> -->
     </div>
-    
+    <div ng-include="'app/views/footer.html'"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.js"></script>

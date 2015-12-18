@@ -1,5 +1,10 @@
+html {
+  height: 100%;
+}
+
 body {
 	background-image: url('./escheresque_ste/escheresque_ste.png');
+	height: 100%;
 }
 
 * {
@@ -131,7 +136,26 @@ body {
 	visibility: hidden;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+	border: 2px solid #491C48;
+	background-color: #4B244A;
+	padding: 10px;
+} 
 
+#developer {
+	color: #968490;
+	margin-right: 10px;
+}
+
+#classTag {
+	color: #968490;
+	position: fixed;
+	right: 10px;
+}
 
 
 
