@@ -1,18 +1,22 @@
 <form ng-submit="userSignup()">
-  <legend>Signup</legend>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">    
+      <legend class="heading">Signup</legend>
 
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="John Smith" ng-model="user.name">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="test@test.com" ng-model="user.email">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="********" ng-model="user.password">
-  </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Billy Bob" ng-model="user.name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="billy@bob.com" ng-model="user.email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="password1" ng-model="user.password">
+      </div>
 
-  <button type="submit" class="btn btn-primary">Signup</button>
+      <button type="submit" class="btn button">Signup</button>
+    </div>  
+  </div>
 </form>
