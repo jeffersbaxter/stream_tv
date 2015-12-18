@@ -35,7 +35,7 @@ app.get("/results", function(req,res){
   var query = {
     term: req.query.q
   };
-  request("https://www.googleapis.com/youtube/v3/search/?part=id,snippet&q="+query.term+"&key="+process.env.YOUTUBE_KEY, function(error,response,body){
+  request("https://www.googleapis.com/youtube/v3/search/?part=id,snippet&maxResults=20&q="+query.term+"&key="+process.env.YOUTUBE_KEY, function(error,response,body){
     if(error) {
       console.log(error);
     }
