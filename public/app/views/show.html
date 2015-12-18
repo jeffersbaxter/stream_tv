@@ -25,7 +25,7 @@
 			<div class="row text-center" ng-repeat="item in shared" id="relatedVids">
 				<div>
 					<a ng-href="/show/{{item.id}}/{{item.details.title}}" id="relatedLink">{{item.details.title | cut:true:45:' ...'}}</a>
-					<img ng-src="{{item.details.thumbnails.medium.url}}" />
+					<img ng-src="{{item.details.thumbnails.medium.url}}" class="img-responsive" width="320" />
 				</div><br /><br />
 			</div>
 		</div>	
