@@ -24,7 +24,7 @@
 			<div class="text-center relatedHeader"><h4>Related Videos</h4></div>
 			<div class="row text-center" ng-repeat="item in shared" id="relatedVids">
 				<div>
-					<a ng-href="/show/{{item.id}}/{{item.details.title}}" id="relatedLink">{{item.details.title | cut:true:50:' ...'}}</a>
+					<a ng-href="/show/{{item.id}}/{{item.details.title}}" id="relatedLink">{{item.details.title | cut:true:45:' ...'}}</a>
 					<img ng-src="{{item.details.thumbnails.medium.url}}" />
 				</div><br /><br />
 			</div>
