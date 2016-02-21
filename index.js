@@ -12,13 +12,13 @@ var secret = "password";
 var mongoose = require('mongoose');
 var Video = require('./models/video');
 var User = require('./models/user');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/videos');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/videos');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/videos', expressJWT({secret: secret}));
+// app.use('/api/videos', expressJWT({secret: secret}));
 app.use('/api/users', expressJWT({secret: secret})
 .unless({path: ['/api/users'], method: 'post'}));
 
@@ -28,7 +28,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-app.use('/api/videos', require('./controllers/videos'));
+// app.use('/api/videos', require('./controllers/videos'));
 app.use('/api/users', require('./controllers/users'));
 
 app.get("/results", function(req,res){

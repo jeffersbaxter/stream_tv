@@ -67,6 +67,7 @@ angular.module('VideoCtrls', ['VideoServices'])
     password: ''
   };
   $scope.userSignup = function() {
+    console.log("Hi");
     $http.post('/api/users', $scope.user).then(function success(res) {
       $http.post('/api/auth', $scope.user).then(function success(res) {
         Auth.saveToken(res.data.token);
