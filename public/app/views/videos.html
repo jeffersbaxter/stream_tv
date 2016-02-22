@@ -28,12 +28,11 @@
 		<div class="col-md-6 col-md-offset-3">
 			
 			<div class="well row" ng-repeat="video in videos track by video.id" id="customWell">
-				<div class="col-md-4">
+				<div class="col-md-12">
+					<img ng-src="{{video.details.thumbnails.medium.url}}" width="320" class="img-responsive" />	
 					<a ng-href="/show/{{video.id}}/{{video.details.title}}">{{video.details.title}}</a>
 					<p>{{video.details["description"]}}</p>
-				</div>
-				<div class="col-md-8">
-					<img ng-src="{{video.details.thumbnails.medium.url}}" width="320" class="img-responsive" />	
+
 				</div>
 			</div>
 		</div>
