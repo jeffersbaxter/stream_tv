@@ -32,7 +32,7 @@ body {
 	color: white;
 }
 
-.well {
+#customWell {
 	background-color: white;
 	color: #4B244A;
 	border-radius: 0;
