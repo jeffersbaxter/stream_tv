@@ -29,7 +29,7 @@
 			
 			<div class="well row" ng-repeat="video in videos track by video.id" id="customWell">
 				<div class="col-md-12">
-					<img ng-src="{{video.details.thumbnails.medium.url}}" width="320" class="img-responsive" />	
+					<img ng-src="{{video.details.thumbnails.large.url}}" width="320" class="img-responsive" />	
 					<a ng-href="/show/{{video.id}}/{{video.details.title}}">{{video.details.title}}</a>
 					<p>{{video.details["description"]}}</p>
 
