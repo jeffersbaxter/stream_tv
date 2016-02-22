@@ -29,6 +29,7 @@ body {
 .button {
 	background-color: #4B244A;
 	border: 2px solid #491C48;
+	color: white;
 }
 
 .well {
